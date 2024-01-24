@@ -1,5 +1,6 @@
 /** @format */
-
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 const multer = require('multer');
 const upload = multer({ dest: 'src/public/uploads/images' });
 const path = require('path');

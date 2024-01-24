@@ -1,6 +1,10 @@
 /** @format */
+
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 // Postman Basic Auth
-const PostmanBasicAuth = (req, res, next) => {
+export const PostmanBasicAuth = (req, res, next) => {
   try {
     const [isAuthBasic, Auth] = req.headers.authorization.split(' ');
 
@@ -21,7 +25,7 @@ const PostmanBasicAuth = (req, res, next) => {
   }
 };
 
-const GenerateToken = (req, res) => {
+export const GenerateToken = (req, res) => {
   try {
     const { email, user } = CheckingKeyReq(req.body, req.query, req.body.data);
     const format = { email: 'String', user: 'String' };
@@ -41,9 +45,9 @@ const GenerateToken = (req, res) => {
 };
 
 // JWT Auth
-const jwt = require('jsonwebtoken');
+export const jwt = require('jsonwebtoken');
 
-const CheckToken = (req, res) => {
+export const CheckToken = (req, res) => {
   try {
     const { token } = CheckingKeyReq(req.body, req.query, req.body.data);
 
@@ -62,7 +66,7 @@ const CheckToken = (req, res) => {
   }
 };
 
-const CheckingTokenAuthorization = (req, res, next) => {
+export const CheckingTokenAuthorization = (req, res, next) => {
   try {
     const [isBearerAuth, Token] = req.headers.authorization.split(' ');
 
@@ -94,9 +98,9 @@ const CheckingTokenAuthorization = (req, res, next) => {
   }
 };
 
-module.exports = {
-  PostmanBasicAuth,
-  GenerateToken,
-  CheckToken,
-  CheckingTokenAuthorization,
-};
+// module.exports = {
+//   PostmanBasicAuth,
+//   GenerateToken,
+//   CheckToken,
+//   CheckingTokenAuthorization,
+// };

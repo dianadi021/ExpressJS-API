@@ -1,6 +1,5 @@
 /** @format */
-
-const CheckingIsNilValue = (key) => {
+export const CheckingIsNilValue = (key) => {
   if (key == '' || key == ' ') {
     return true;
   }
@@ -11,14 +10,14 @@ const CheckingIsNilValue = (key) => {
   }
 };
 
-const CheckingKeyReq = (Req1, Req2, Req3) => {
+export const CheckingKeyReq = (Req1, Req2, Req3) => {
   let RequestSyntax = Object.keys(Req1).length >= 1 ? Req1 : false;
   RequestSyntax = !RequestSyntax ? Req2 : RequestSyntax;
   RequestSyntax = !RequestSyntax ? JSON.parse(Req3) : RequestSyntax;
   return RequestSyntax;
 };
 
-const CheckingKeyReqSyntax = (ValidSyntax, Req1, Req2, Req3) => {
+export const CheckingKeyReqSyntax = (ValidSyntax, Req1, Req2, Req3) => {
   let RequestSyntax = Object.keys(Req1).length > 0 ? Req1 : false;
   RequestSyntax = !RequestSyntax ? Req2 : RequestSyntax;
   RequestSyntax = !RequestSyntax ? JSON.parse(Req3) : RequestSyntax;
@@ -35,14 +34,14 @@ const CheckingKeyReqSyntax = (ValidSyntax, Req1, Req2, Req3) => {
   return flag;
 };
 
-const CheckingObjectValue = (ParentObject, AddKeyObject) => {
+export const CheckingObjectValue = (ParentObject, AddKeyObject) => {
   if (AddKeyObject[Object.keys(AddKeyObject)]) {
     ParentObject[Object.keys(AddKeyObject)] = AddKeyObject[Object.keys(AddKeyObject)] ? AddKeyObject[Object.keys(AddKeyObject)] : null;
   }
   return ParentObject;
 };
 
-const GetFilteredDocument = async (Model, MatchQueries) => {
+export const GetFilteredDocument = async (Model, MatchQueries) => {
   let result = await Model.aggregate([
     {
       $lookup: {
@@ -66,10 +65,10 @@ const GetFilteredDocument = async (Model, MatchQueries) => {
   return result;
 };
 
-module.exports = {
-  CheckingIsNilValue,
-  CheckingKeyReq,
-  CheckingKeyReqSyntax,
-  CheckingObjectValue,
-  GetFilteredDocument,
-};
+// module.exports = {
+//   CheckingIsNilValue,
+//   CheckingKeyReq,
+//   CheckingKeyReqSyntax,
+//   CheckingObjectValue,
+//   GetFilteredDocument,
+// };

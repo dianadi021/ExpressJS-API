@@ -1,7 +1,7 @@
 /** @format */
 
 import { createRequire } from 'module';
-import { CreateItemPublisher, DeletePublisherByID, GetPublisherByID, GetPublishers, UpdatePublisherByID } from '../functions/publisher.js';
+import { CreateItemBrand, DeleteBrandByID, GetBrandByID, GetBrands, UpdateBrandByID } from '../functions/brands.js';
 const require = createRequire(import.meta.url);
 
 const express = require('express');
@@ -12,7 +12,11 @@ router.use(express.urlencoded({ extended: true }));
 
 router.post('/', async (req, res) => {
   try {
-    return await CreateItemPublisher(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await CreateItemBrand(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -20,7 +24,11 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    return await GetPublishers(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await GetBrands(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -28,7 +36,11 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    return await GetPublisherByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await GetBrandByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -36,7 +48,11 @@ router.get('/:id', async (req, res) => {
 
 router.post('/update/:id', async (req, res) => {
   try {
-    return await UpdatePublisherByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await UpdateBrandByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -44,7 +60,11 @@ router.post('/update/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    return await UpdatePublisherByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await UpdateBrandByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -52,7 +72,11 @@ router.put('/:id', async (req, res) => {
 
 router.post('/delete/:id', async (req, res) => {
   try {
-    return await DeletePublisherByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await DeleteBrandByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -60,7 +84,11 @@ router.post('/delete/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    return await DeletePublisherByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await DeleteBrandByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }

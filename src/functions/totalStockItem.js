@@ -39,8 +39,8 @@ export const CreateTotalStockItem = async (req, res) => {
 
       const mngodFilter = { itemName: itemName.toLowerCase() };
       return await TotalStockItemModel.findOneAndUpdate(mngodFilter, updateTotalStockItem)
-        .then((result) => res.status(200).json({ status: 'success', messages: `Berhasil memperbaharui data.` }))
-        .catch((err) => res.status(500).json({ status: 'failed', messages: `Gagal memperbaharui data. Function Catch: ${err}` }));
+        .then((result) => true)
+        .catch((err) => false);
     }
 
     // NOT FIXED IN HERE IF DELETED ALL
@@ -204,6 +204,7 @@ export const GetTotalStockItemByID = async (req, res) => {
   }
 };
 
+// BELUM FIX UNTUK UPDATE JIKA NAMA PRODUK DI GANTI
 export const UpdateTotalStockByID = async (req, res, documentsItemInDB, update) => {
   try {
     const oldItemName = documentsItemInDB.itemName;
@@ -215,8 +216,8 @@ export const UpdateTotalStockByID = async (req, res, documentsItemInDB, update) 
     if (isNewItemNameUsed.length <= 1) {
       const newRowTotalStock = { body: update };
       return await CreateTotalStockItem(newRowTotalStock, res)
-        .then((result) => result)
-        .catch((err) => err);
+        .then((result) => [result, `Berhasil memperbaharui total stock`])
+        .catch((err) => [err, `Gagal memperbaharui total produk`]);
     }
 
     if (isOldItemNameUsed.length >= 1) {

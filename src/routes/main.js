@@ -12,7 +12,11 @@ router.use(express.urlencoded({ extended: true }));
 
 router.post('/', async (req, res) => {
   try {
-    return await CreateMain(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await CreateMain(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -20,7 +24,11 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    return await GetMain(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await GetMain(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -28,7 +36,11 @@ router.get('/', async (req, res) => {
 
 router.get('/main/:id', async (req, res) => {
   try {
-    return await GetMainByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await GetMainByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -36,7 +48,11 @@ router.get('/main/:id', async (req, res) => {
 
 router.post('/main/update/:id', async (req, res) => {
   try {
-    return await UpdateMainByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await UpdateMainByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -44,7 +60,11 @@ router.post('/main/update/:id', async (req, res) => {
 
 router.put('/main/:id', async (req, res) => {
   try {
-    return await UpdateMainByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await UpdateMainByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -52,7 +72,11 @@ router.put('/main/:id', async (req, res) => {
 
 router.post('/main/delete/:id', async (req, res) => {
   try {
-    return await DeleteMainByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await DeleteMainByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }
@@ -60,7 +84,11 @@ router.post('/main/delete/:id', async (req, res) => {
 
 router.delete('/main/:id', async (req, res) => {
   try {
-    return await DeleteMainByID(req, res);
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        return await DeleteMainByID(req, res);
+      }, 7500);
+    });
   } catch (err) {
     res.status(500).json({ status: 'failed', message: `Endpoint error: ${err}` });
   }

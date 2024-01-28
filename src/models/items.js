@@ -5,7 +5,7 @@ import mongooseDB from '../app/connect.js';
 const ItemsSchema = mongooseDB.Schema(
   {
     itemName: { type: String, required: true },
-    itemPublisher: { type: mongooseDB.Schema.Types.ObjectId, ref: 'Publisher' },
+    itemBrand: { type: mongooseDB.Schema.Types.ObjectId, ref: 'Brands' },
     itemCategories: [{ type: mongooseDB.Schema.Types.ObjectId, ref: 'Categories' }],
     unitOfMeasurement: { type: mongooseDB.Schema.Types.ObjectId, ref: 'itemUnitMeasurement' },
     itemStock: { type: Number, required: true },
@@ -28,7 +28,7 @@ export const ItemsModel = mongooseDB.model('Item', ItemsSchema);
 
 export const FormatItemModel = {
   itemName: 'String',
-  itemPublisher: 'String',
+  itemBrand: 'String',
   itemCategories: ['String'],
   unitOfMeasurement: 'String',
   itemStock: 'Number',

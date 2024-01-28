@@ -7,14 +7,14 @@ const express = require('express');
 const app = express();
 const port = 9000;
 
-import { category, item, main, publisher, totalStockItem } from '../bridges.js';
+import { brands, category, item, main, totalStockItem } from '../bridges.js';
 
 try {
   // Main API
   app.use(main);
-  app.use('/item', item);
-  app.use('/category', category);
-  app.use('/publisher', publisher);
+  app.use('/items', item);
+  app.use('/categories', category);
+  app.use('/brands', brands);
   app.use('/item/total/stock', totalStockItem);
 
   app.listen(port, () => {

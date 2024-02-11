@@ -3,7 +3,8 @@
 import mongooseDB from '../app/connect.js';
 const BrandSchema = mongooseDB.Schema(
   {
-    nameBrand: { type: String, required: true },
+    brandName: { type: String, required: true },
+    description: { type: String },
   },
   { timestamps: true },
   {
@@ -19,4 +20,11 @@ export const mongoose = mongooseDB;
 
 export const BrandModel = mongooseDB.model('Brand', BrandSchema);
 
-export const FormatBrandModel = { nameBrand: 'String' };
+export const FormatBrand = {
+  brandName: { type: 'String', required: true },
+  description: { type: 'String' },
+  isForceUpdate: {
+    type: 'Boolean',
+    required: true,
+  },
+};

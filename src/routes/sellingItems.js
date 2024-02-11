@@ -1,7 +1,13 @@
 /** @format */
 
 import { createRequire } from 'module';
-import { CreateMain, DeleteMainByID, GetMain, GetMainByID, UpdateMainByID } from '../functions/main.js';
+import {
+  CreateSellingItem,
+  DeleteSellingItemByID,
+  GetSellingItemByID,
+  GetSellingItems,
+  UpdateSellingItemByID,
+} from '../functions/sellingItems.js';
 const require = createRequire(import.meta.url);
 
 const express = require('express');
@@ -14,7 +20,7 @@ router.post('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await CreateMain(req, res);
+        return await CreateSellingItem(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -26,7 +32,7 @@ router.get('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetMain(req, res);
+        return await GetSellingItems(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -38,7 +44,7 @@ router.get('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetMainByID(req, res);
+        return await GetSellingItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -50,7 +56,7 @@ router.post('/update/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateMainByID(req, res);
+        return await UpdateSellingItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -62,7 +68,7 @@ router.put('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateMainByID(req, res);
+        return await UpdateSellingItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -74,7 +80,7 @@ router.post('/delete/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteMainByID(req, res);
+        return await DeleteSellingItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -86,7 +92,7 @@ router.delete('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteMainByID(req, res);
+        return await DeleteSellingItemByID(req, res);
       }, 7500);
     });
   } catch (err) {

@@ -5,12 +5,12 @@ const require = createRequire(import.meta.url);
 const mongoose = require('mongoose');
 
 const dbName = 'Konter_IONGS';
-const urlServer = `mongodb://localhost:27017/${dbName}`;
+const localServer = `mongodb://localhost:27017/${dbName}`;
 
 export const mongoConnect = async () => {
   try {
     await mongoose
-      .connect(`${urlServer}`, { useFindAndModify: true, useNewUrlParser: true, useUnifiedTopology: true })
+      .connect(`${localServer}`, { useFindAndModify: true, useNewUrlParser: true, useUnifiedTopology: true })
       .then((result) => {
         console.log('Success connected to MongoDB!');
       })

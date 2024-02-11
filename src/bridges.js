@@ -2,15 +2,17 @@
 
 import { mongoConnect } from './app/connect.js';
 import rBrands from './routes/brands.js';
-import rCategory from './routes/category.js';
-import rItem from './routes/items.js';
+import rCategories from './routes/categories.js';
 import rMain from './routes/main.js';
-import rTotalStockItem from './routes/totalStockItem.js';
+import rRestockItems from './routes/restockItems.js';
+import rSellingItems from './routes/sellingItems.js';
+import rTotalStockItems from './routes/totalStockItems.js';
 
 mongoConnect();
 
 export const main = rMain;
-export const item = rItem;
-export const category = rCategory;
+export const restockItems = rRestockItems;
+export const categories = rCategories;
 export const brands = rBrands;
-export const totalStockItem = rTotalStockItem;
+export const totalStockItem = rTotalStockItems;
+export const sellingItems = rSellingItems;

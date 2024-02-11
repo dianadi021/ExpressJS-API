@@ -5,6 +5,7 @@ import mongooseDB from '../app/connect.js';
 const CategoriesSchema = mongooseDB.Schema(
   {
     categoryName: { type: String, required: true },
+    description: { type: String },
   },
   { timestamps: true },
   {
@@ -20,4 +21,11 @@ export const mongoose = mongooseDB;
 
 export const CategoriesModel = mongooseDB.model('Category', CategoriesSchema);
 
-export const FormatCategoryModel = { categoryName: 'String' };
+export const FormatCategory = {
+  categoryName: { type: 'String', required: true },
+  description: { type: 'String' },
+  isForceUpdate: {
+    type: 'Boolean',
+    required: true,
+  },
+};

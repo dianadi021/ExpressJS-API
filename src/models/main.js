@@ -21,4 +21,11 @@ export const mongoose = mongooseDB;
 
 export const MainModel = mongooseDB.model('Main', MainSchema);
 
-export const FormatMainModel = { name: 'String', categories: 'String' };
+export const FormatMain = {
+  name: { type: 'String', required: true },
+  categories: { type: 'String' },
+  isForceUpdate: {
+    type: 'Boolean',
+    required: true,
+  },
+};

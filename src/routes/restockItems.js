@@ -1,7 +1,7 @@
 /** @format */
 
 import { createRequire } from 'module';
-import { CreateCategory, DeleteCategoryByID, GetCategories, GetCategoryByID, UpdateCategoryByID } from '../functions/category.js';
+import { CreateItem, DeleteItemByID, GetItemByID, GetItems, UpdateItemByID } from '../functions/restockItems.js';
 const require = createRequire(import.meta.url);
 
 const express = require('express');
@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await CreateCategory(req, res);
+        return await CreateItem(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetCategories(req, res);
+        return await GetItems(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetCategoryByID(req, res);
+        return await GetItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -50,7 +50,7 @@ router.post('/update/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateCategoryByID(req, res);
+        return await UpdateItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -62,7 +62,7 @@ router.put('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateCategoryByID(req, res);
+        return await UpdateItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -74,7 +74,7 @@ router.post('/delete/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteCategoryByID(req, res);
+        return await DeleteItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -86,7 +86,7 @@ router.delete('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteCategoryByID(req, res);
+        return await DeleteItemByID(req, res);
       }, 7500);
     });
   } catch (err) {

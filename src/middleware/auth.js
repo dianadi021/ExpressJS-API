@@ -97,10 +97,3 @@ export const CheckingTokenAuthorization = (req, res, next) => {
     res.json({ messages: false, catch: `Function Catch: ${err}` });
   }
 };
-
-// module.exports = {
-//   PostmanBasicAuth,
-//   GenerateToken,
-//   CheckToken,
-//   CheckingTokenAuthorization,
-// };

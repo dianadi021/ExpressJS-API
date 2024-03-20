@@ -1,20 +1,15 @@
 /** @format */
 
-import { createRequire } from 'module';
-import { CreateItem, DeleteItemByID, GetItemByID, GetItems, UpdateItemByID } from '../functions/restockItems.js';
-const require = createRequire(import.meta.url);
+import { Router } from 'express';
+import { CreateCategory, DeleteCategoryByID, GetCategories, GetCategoryByID, UpdateCategoryByID } from '../../functions/api/categories.js';
 
-const express = require('express');
-const router = express.Router();
-
-router.use(express.json());
-router.use(express.urlencoded({ extended: true }));
+const router = new Router();
 
 router.post('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await CreateItem(req, res);
+        return await CreateCategory(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -26,7 +21,7 @@ router.get('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetItems(req, res);
+        return await GetCategories(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -38,7 +33,7 @@ router.get('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetItemByID(req, res);
+        return await GetCategoryByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -50,7 +45,7 @@ router.post('/update/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateItemByID(req, res);
+        return await UpdateCategoryByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -62,7 +57,7 @@ router.put('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateItemByID(req, res);
+        return await UpdateCategoryByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -74,7 +69,7 @@ router.post('/delete/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteItemByID(req, res);
+        return await DeleteCategoryByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -86,7 +81,7 @@ router.delete('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteItemByID(req, res);
+        return await DeleteCategoryByID(req, res);
       }, 7500);
     });
   } catch (err) {

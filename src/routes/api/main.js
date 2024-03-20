@@ -1,14 +1,11 @@
 /** @format */
 
 import { createRequire } from 'module';
-import { CreateMain, DeleteMainByID, GetMain, GetMainByID, UpdateMainByID } from '../functions/main.js';
+import { CreateMain, DeleteMainByID, GetMain, GetMainByID, UpdateMainByID } from '../../functions/api/main.js';
 const require = createRequire(import.meta.url);
 
-const express = require('express');
-const router = express.Router();
-
-router.use(express.json());
-router.use(express.urlencoded({ extended: true }));
+import { Router } from 'express';
+const router = new Router();
 
 router.post('/', async (req, res) => {
   try {

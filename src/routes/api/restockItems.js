@@ -1,26 +1,15 @@
 /** @format */
 
-import { createRequire } from 'module';
-import {
-  CreateTotalStockItem,
-  DeleteTotalStockByID,
-  GetTotalStockItemByID,
-  GetTotalStockItems,
-  UpdateTotalStockByID,
-} from '../functions/totalStockItems.js';
-const require = createRequire(import.meta.url);
+import { Router } from 'express';
+import { CreateItem, DeleteItemByID, GetItemByID, GetItems, UpdateItemByID } from '../../functions/api/restockItems.js';
 
-const express = require('express');
-const router = express.Router();
-
-router.use(express.json());
-router.use(express.urlencoded({ extended: true }));
+const router = new Router();
 
 router.post('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await CreateTotalStockItem(req, res);
+        return await CreateItem(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -32,7 +21,7 @@ router.get('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetTotalStockItems(req, res);
+        return await GetItems(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -44,7 +33,7 @@ router.get('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetTotalStockItemByID(req, res);
+        return await GetItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -56,7 +45,7 @@ router.post('/update/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateTotalStockByID(req, res);
+        return await UpdateItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -68,7 +57,7 @@ router.put('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateTotalStockByID(req, res);
+        return await UpdateItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -80,7 +69,7 @@ router.post('/delete/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteTotalStockByID(req, res);
+        return await DeleteItemByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -92,7 +81,7 @@ router.delete('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteTotalStockByID(req, res);
+        return await DeleteItemByID(req, res);
       }, 7500);
     });
   } catch (err) {

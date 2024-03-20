@@ -1,20 +1,15 @@
 /** @format */
 
-import { createRequire } from 'module';
+import { Router } from 'express';
 import {
   CreateSellingItem,
   DeleteSellingItemByID,
   GetSellingItemByID,
   GetSellingItems,
   UpdateSellingItemByID,
-} from '../functions/sellingItems.js';
-const require = createRequire(import.meta.url);
+} from '../../functions/api/sellingItems.js';
 
-const express = require('express');
-const router = express.Router();
-
-router.use(express.json());
-router.use(express.urlencoded({ extended: true }));
+const router = new Router();
 
 router.post('/', async (req, res) => {
   try {

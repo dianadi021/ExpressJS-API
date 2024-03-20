@@ -1,20 +1,15 @@
 /** @format */
 
-import { createRequire } from 'module';
-import { CreateCategory, DeleteCategoryByID, GetCategories, GetCategoryByID, UpdateCategoryByID } from '../functions/categories.js';
-const require = createRequire(import.meta.url);
+import { Router } from 'express';
+import { CreateItemBrand, DeleteBrandByID, GetBrandByID, GetBrands, UpdateBrandByID } from '../../functions/api/brands.js';
 
-const express = require('express');
-const router = express.Router();
-
-router.use(express.json());
-router.use(express.urlencoded({ extended: true }));
+const router = new Router();
 
 router.post('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await CreateCategory(req, res);
+        return await CreateItemBrand(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -26,7 +21,7 @@ router.get('/', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetCategories(req, res);
+        return await GetBrands(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -38,7 +33,7 @@ router.get('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await GetCategoryByID(req, res);
+        return await GetBrandByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -50,7 +45,7 @@ router.post('/update/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateCategoryByID(req, res);
+        return await UpdateBrandByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -62,7 +57,7 @@ router.put('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await UpdateCategoryByID(req, res);
+        return await UpdateBrandByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -74,7 +69,7 @@ router.post('/delete/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteCategoryByID(req, res);
+        return await DeleteBrandByID(req, res);
       }, 7500);
     });
   } catch (err) {
@@ -86,7 +81,7 @@ router.delete('/:id', async (req, res) => {
   try {
     return new Promise((resolve, reject) => {
       setTimeout(async () => {
-        return await DeleteCategoryByID(req, res);
+        return await DeleteBrandByID(req, res);
       }, 7500);
     });
   } catch (err) {

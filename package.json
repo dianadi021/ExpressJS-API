@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skuadproduction/ExpressJS-API.git"
+    "url": "git+https://github.com/dianadi021/ExpressJS-API.git"
   },
   "keywords": [
     "nodejs",
@@ -25,9 +25,9 @@
   "author": "dianadi021",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/skuadproduction/ExpressJS-API/issues"
+    "url": "https://github.com/dianadi021/ExpressJS-API/issues"
   },
-  "homepage": "https://github.com/skuadproduction/ExpressJS-API#readme",
+  "homepage": "https://github.com/dianadi021/ExpressJS-API#readme",
   "devDependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
